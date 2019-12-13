@@ -1,0 +1,51 @@
+#+TITLE: My orgmode setup
+#+DATE: 2019-12-06T10:30:00+01:00
+#+TAGS: ["Emacs"]
+#+DRAFT: true
+
+* Goals
+
+Why all the effort?
+
+- Keep track of todos and thoughts for different projects
+- Learn about myself and how much time I spent in a context
+- Maintain a reference of notes for lookup/research
+- Maintain a diary
+
+What I do not do with orgmode?
+
+Maintain my citation index.
+
+** Diary
+Especially the diary is intesting for two different reasons:
+
+1. Sometimes my boss does a retrospective and wants to talk with me about what I did.
+2. Sometimes I need to investigate a problem for which I need to now what
+   happened on a specific day.
+
+** Learn
+
+I work in lot of different contexts.  Sometimes I have the impression I'm in to
+many meetings.
+
+I do trainings, have to organize them, review and improve the training material.
+
+I do consulting.  How much time I spent helping others?  My boss might also ask
+me this question.
+
+** Reference
+I have to deal with a lot of different technologies, different cloud providers,
+different databases, a couple of programming languages.
+
+I have to admit I can not hold everything in my head.  I hope that notes about
+stuff I learned help me later to remember stuff faster.  Also I think I could
+learn by building a network of notes about a topic.
+
+Some commands are easier to lookup: e.g. how to filter a json tree using ~jq~.
+* Begin with the end
+
+Interesting are the reporting capabilities.  I learned about them only recently.
+
+With ~org-agenda-clockreport-mode~ I can quickly generate a report for a day or
+week.  This gives an overview by hierarchy and file.  We can filter by tag but
+not aggregate by tag out of the box.
