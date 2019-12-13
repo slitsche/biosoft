@@ -1,0 +1,87 @@
+## Basic Configuration
+
+baseurl = "http://biosoft.de"
+builddrafts = false
+canonifyurls = false
+languageCode = "en-US"
+
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+
+author = "Stefan Litsche"
+title = "Biosoft"
+
+theme = "hugo-goa"
+
+## Hugo Built-in Features
+# disqusShortname = "https-shenoybr-github-io-hugo-goa-demo" # Comment out to disable Disqus.
+# googleAnalytics = "XYZ"
+enableRobotsTXT = true
+
+## Site Settings
+[params]
+author = "Stefan Litsche"
+intro = "Stateful Clojure Developer"
+description = "Love to code functionally, love SQL and interested in storage technologies"
+authorimage = "clarinet_player_sq.png"
+dateformat = "Jan 2, 2006"
+
+## Site Meta Settings
+[params.meta]
+description = "Stefan Litsche Homepage"
+keywords = "stateful developer, databases, functional programming, clojure, SQL, Postgresql, Emacs"
+
+## Social Accounts
+[params.social]
+github = "slitsche"
+xing = "Stefan_Litsche"
+linkedin = "stefan-litsche"
+twitter = "slitsche"
+#bitbucket = "slitsche"
+soundcloud = "baccla"
+#instagram = "<username>"
+# facebook = "<username>"
+# google = "<username>"
+# stackoverflow = "<username>"
+# lastfm = "<username>"
+# goodreads = "<username>"
+# gitlab = "<username>"
+# fivehundredpx = "<username>"
+# flickr = "<username>"
+# foursquare = "<username>"
+# hackernews = "<username>"
+# kickstarter = "<username>"
+# patreon = "<username>"
+# pintrest = "<username>"
+# steam = "<username>"
+# reddit = "<username>"
+# snapchat = "<username>"
+# youtube = "<username>"
+# keybase = "<username>"
+# twitch = "<username>"
+# tumblr = "<username>"
+# skype = "<username>"
+# telegram = "<username>"
+# whatsapp = "<username>"
+email = "slitsche@biosoft.de"
+
+## Extras
+[params.extra]
+copyright = "© 2018. Stefan Litsche. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+poweredby = true
+highlightjs = true
+socialmarkup = true
+rss = true
+
+## Main Menu
+[[menu.main]]
+    name = "blog"
+    weight = 100
+    identifier = "blog"
+    url = "/posts/"
+[[menu.main]]
+    name = "about"
+    identifier = "about"
+    weight = 200
+    url = "/about/"
