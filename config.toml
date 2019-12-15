@@ -9,8 +9,7 @@ contentdir = "content"
 layoutdir = "layouts"
 publishdir = "public"
 
-author = "Stefan Litsche"
-title = "Biosoft"
+title = "Stefan Litsche"
 
 theme = "hugo-goa"
 
