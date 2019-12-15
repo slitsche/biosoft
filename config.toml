@@ -63,7 +63,7 @@ soundcloud = "baccla"
 # skype = "<username>"
 # telegram = "<username>"
 # whatsapp = "<username>"
-email = "slitsche@biosoft.de"
+#email = "slitsche@biosoft.de"
 
 ## Extras
 [params.extra]
