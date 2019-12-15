@@ -1,7 +1,9 @@
 ---
 title: "Bitter Lessons?"
 date: 2019-04-02T20:57:27+02:00
-draft: true
+draft: false
+tags:
+    - Machine Learning
 ---
 
 A friend pointed me to the article about [Bitter Lessons][bitterlesson] learned

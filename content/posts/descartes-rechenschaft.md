@@ -1,7 +1,7 @@
 ---
-title: "Descartes Rechenschaft"
+title: "Descartes über das Urteilen"
 date: 2019-05-02T21:12:04+02:00
-draft: true
+draft: false
 ---
 
 > Die Geistestätigkeit nämlich, vermöge der wir etwas für gut oder schlecht

@@ -23,7 +23,7 @@ enableRobotsTXT = true
 [params]
 author = "Stefan Litsche"
 intro = "Stateful Clojure Developer"
-description = "Love to code functionally, love SQL and interested in storage technologies"
+description = "Love to code functionally, love SQL and interested in databases.  I am also a trainer and a musician."
 authorimage = "clarinet_player_sq.png"
 dateformat = "Jan 2, 2006"
 
@@ -68,7 +68,7 @@ email = "slitsche@biosoft.de"
 
 ## Extras
 [params.extra]
-copyright = "© 2018. Stefan Litsche. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+copyright = "© 2008-2019. Stefan Litsche. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
 poweredby = true
 highlightjs = true
 socialmarkup = true
