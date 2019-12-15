@@ -76,12 +76,12 @@ rss = true
 
 ## Main Menu
 [[menu.main]]
-    name = "blog"
+    name = "Blog"
     weight = 100
     identifier = "blog"
     url = "/posts/"
 [[menu.main]]
-    name = "about"
-    identifier = "about"
+    name = "Impressum"
+    identifier = "impressum"
     weight = 200
-    url = "/about/"
+    url = "/impressum.html"
