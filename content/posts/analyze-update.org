@@ -1,6 +1,6 @@
 #+TITLE: An Update on Statistics Target
 #+DATE: 2019-12-01T10:30:00+01:00
-#+TAGS: ["Postgres"]
+#+TAGS: ["PostgreSQL"]
 #+DRAFT: false
 
 [[/posts/analyze-extreme-distributions-in-postgresql/][Earlier I analyzed]] the influence of the statistics target on the result of
@@ -13,8 +13,8 @@ In PostgreSQL 9.6 the situation improved and some [[https://www.postgresql.org/d
 were released.  More work was done on this issue to improve the [[https://www.postgresql.org/docs/release/11.0/][selection of
 most common values]] which was released in PostgreSQL 11.
 
-I was curious how the situation has changed.  Which values for the =statistics
-target= should I choose in a similar situation?  So I repeated the analysis with
+I was curious how the situation has changed.  Which values for the statistics
+target should I choose in a similar situation?  So I repeated the analysis with
 a newer version of Postgres.  Below you find the results for PostgeSQL 11.2 (10
 Mio rows, 10 samples for =analyze=).
 

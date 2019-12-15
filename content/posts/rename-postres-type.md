@@ -3,7 +3,7 @@ title: "Umbennen von Postgres Typen"
 date: 2012-11-08T16:49:57+00:00
 draft: false
 tags:
-  - Postgres
+  - PostgreSQL
 ---
 
 In PL/pgSQL, eine der Programmiersprachen für die serverseitige Programmierung

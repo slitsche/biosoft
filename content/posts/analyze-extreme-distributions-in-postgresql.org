@@ -1,6 +1,6 @@
 #+TITLE: Analyze Extreme Distributions in Postgresql
 #+DATE: 2015-07-30T10:30:00+01:00
-#+TAGS: ["Postgres"]
+#+TAGS: ["PostgreSQL"]
 
 [[file:/extreme/load-spike.png]]
 

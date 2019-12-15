@@ -4,7 +4,7 @@ date: 2014-10-07T10:30:00+01:00
 draft: false
 featuredImg: ""
 tags:
-  - Postgres
+  - PostgreSQL
 ---
 The [`pg_stat_bgwriter`
 view](http://www.postgresql.org/docs/9.3/static/monitoring-stats.html)
