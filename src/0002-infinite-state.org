@@ -1,6 +1,0 @@
-#+TITLE: Streaming and infinite state
-
-In the last couple of weeks for a project we evaluated several streaming
-frameworks for our use case.  The goal of the project is to replace some
-transformations which currently run in an overload Oracle database.  The source
-is [[https://nakadi.io/][Nakadi]] some kind of an enterprise message bus.

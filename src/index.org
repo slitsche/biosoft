@@ -1,6 +1,0 @@
-#+TITLE: biosoft
-* Stefan's Blog
-Das ist die neue Version meines Blogs.
-
-See [[file:0002-infinite-state.org][infinite state ]].
-
