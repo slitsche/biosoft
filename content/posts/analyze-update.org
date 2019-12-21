@@ -3,15 +3,15 @@
 #+TAGS: ["PostgreSQL"]
 #+DRAFT: false
 
-[[/posts/analyze-extreme-distributions-in-postgresql/][Earlier I analyzed]] the influence of the statistics target on the result of
-sampling for extreme distributions.  The representatin of extreme rare values in
-the [[https://www.postgresql.org/docs/current/view-pg-stats.html ][most common
-values]] required a
-drastic increase of the sample size.
+In an [[/posts/analyze-extreme-distributions-in-postgresql/][earlier article I analyzed]] the influence of the statistics target on the
+result of sampling for extreme distributions.  The representation of extreme
+rare values in the [[https://www.postgresql.org/docs/current/view-pg-stats.html ][most common values]] required a drastic increase of the sample
+size.
 
-In PostgreSQL 9.6 the situation improved and some [[https://www.postgresql.org/docs/release/9.6.0/][improvements for =analyze=]]
-were released.  More work was done on this issue to improve the [[https://www.postgresql.org/docs/release/11.0/][selection of
-most common values]] which was released in PostgreSQL 11.
+My colleage Alex Shulgin initiated a patch which improved the situation for
+null values.  In PostgreSQL 9.6 the [[https://www.postgresql.org/docs/release/9.6.0/][improvements for =analyze=]] were released.
+More work was done on this issue later to improve the [[https://www.postgresql.org/docs/release/11.0/][selection of most common
+values]] which was released in PostgreSQL 11.
 
 I was curious how the situation has changed.  Which values for the statistics
 target should I choose in a similar situation?  So I repeated the analysis with
