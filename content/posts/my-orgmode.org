@@ -1,4 +1,4 @@
-#+TITLE: My orgmode setup
+#+TITLE: My org-mode setup
 #+DATE: 2019-12-06T10:30:00+01:00
 #+TAGS: ["Emacs"]
 #+DRAFT: true
@@ -8,16 +8,14 @@
 Why all the effort?
 
 - Keep track of todos and thoughts for different projects
-- Learn about myself and how much time I spent in a context
 - Maintain a reference of notes for lookup/research
 - Maintain a diary
+- Learn about myself and how much time I spent in a context
 
-What I do not do with orgmode?
-
-Maintain my citation index.
+What I do not do with org-mode?  Maintain my citation index.
 
 ** Diary
-Especially the diary is intesting for two different reasons:
+Especially the diary is interesting for two different reasons:
 
 1. Sometimes my boss does a retrospective and wants to talk with me about what I did.
 2. Sometimes I need to investigate a problem for which I need to now what
@@ -49,3 +47,60 @@ Interesting are the reporting capabilities.  I learned about them only recently.
 With ~org-agenda-clockreport-mode~ I can quickly generate a report for a day or
 week.  This gives an overview by hierarchy and file.  We can filter by tag but
 not aggregate by tag out of the box.
+
+Can I get the diary out of archived items?  Maybe even with an agenda?
+
+
+Yes it is
+
+https://orgmode.org/manual/Internal-archiving.html
+
+#+BEGIN_QUOTE
+During agenda view construction (see Agenda Views), the content of archived
+trees is ignored unless you configure the option org-agenda-skip-archived-trees,
+in which case these trees are always included. In the agenda you can press =v a=
+to get archives temporarily included.
+#+END_QUOTE
+
+=v a= actually only includes archive trees.  What I need is =v A= which includes
+archive files.
+
+The next question is now how can I achieve that the done tasks are listed for
+the done day.  I want to include scheduled and non scheduled tasks.
+
+Scheduled tasks appear in agenda with the scheduled day.
+
+#+BEGIN_SRC elisp
+(setq org-log-done 'time)
+#+END_SRC
+
+This helps!  If I turn agenda into log-mode I see those closed items.
+The timestamp is inactive.  Behavior would change if it would be an active
+timestamp.  (Is this necessary?  In order to see my history I could also walk
+through time in log-mode).  It even works for items which are not scheduled.
+
+If an item is marked as closed and has an clock entry it will show up in
+log-mode view twice.  This depends on the configuration of
+=org-agenda-log-mode-items=.
+
+
+** What to report?
+
+Reporting is about categorizing.
+
+The first idea was to collect the consulting task below a 'Consulting'
+headline.  But I also often consult my team mates about project stuff.  Actually
+it is being a partner who gives feedback.  I also could label those as =CONS=
+items.
+
+There is the idea of makeing =MEET= a todo state with the meaning of =DONE=.
+This will allow a capture for meetings and a capture for DB-consulting stuff.
+Doing so would allow the meeting about possibilites of a master thesis correctly
+mark as as meeting and tag it as =ORGA=.  And the consulting meeting would a
+=MEET= item in the category db-consulting.
+
+Unspecified meetings would go into the inbox.  Refiling creates the context
+(which project was the meeting about).  After doing this I also would see it in
+the context of my daily log agenda.
+
+Does capturing an item in =DONE= state also trigger getting the 'log-done-time'?
