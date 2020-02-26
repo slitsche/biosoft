@@ -14,16 +14,16 @@ distribution.  For some of the more frequent values we will see those
 represented in the MCV list.  The majority of values will be represented using
 [[https://www.postgresql.org/docs/current/view-pg-stats.html][~histograms_bounds~]].
 
-In following I want to focus on the effect of uneven distribution of the
-population represented in ~histogram_bounds~.  In order to illustrate it you see
-an example with less data.
+In the following text I want to focus on the effect of uneven distribution of
+the population represented in ~histogram_bounds~.  We will disregard the effect
+of MCV values here for the sake of simplicity.  In order to illustrate it you
+see an example with less data.
 
 In the picture we see a possible uneven distribution.  A column in our table
 might have the 10 different values (from 1 to 10).  From all rows 58% have the
 value "9".
 
-How would Postgres represent such a distribution in bucket (we omit the effect
-of MCV values here for the sake of simplicity).
+
 
 Every bucket shall represent the same number of rows.  Therefore we could think
 of the borders of the bucket as a percentile.  If we consider the case of 50%
