@@ -1,15 +1,15 @@
-#+TITLE: Postgres statistic for big tables
+#+TITLE: Why Tune Analyze in Postgres
 #+DATE: 2020-01-09T21:06:34+01:00
 #+TAGS: ["PostgreSQL"]
 #+DRAFT: true
 
 Why is it important to adjust the statistics target for big tables?
 
-In the previous post I analyzed the issue for a very specific case:  few values
+In the [[/posts/analyze-extreme-distributions-in-postgresql/][previous post]] I analyzed the issue for a very specific case:  few values
 (low cardinality) on big table with very uneven distribution.
 
 Now let's imagine we have tables with a non unique high cardinality column.
-Looking at the distribution for the values we observe a hightly uneven
+Looking at the distribution for the values we observe a highly uneven
 distribution.  For some of the more frequent values we will see those
 represented in the MCV list.  The majority of values will be represented using
 [[https://www.postgresql.org/docs/current/view-pg-stats.html][~histograms_bounds~]].
@@ -19,20 +19,20 @@ the population represented in ~histogram_bounds~.  We will disregard the effect
 of MCV values here for the sake of simplicity.  In order to illustrate it you
 see an example with less data.
 
-In the picture we see a possible uneven distribution.  A column in our table
+In the picture we see an uneven distribution.  A column in our table
 might have the 10 different values (from 1 to 10).  From all rows 58% have the
 value "9".
 
 
 
-Every bucket shall represent the same number of rows.  Therefore we could think
-of the borders of the bucket as a percentile.  If we consider the case of 50%
-percentile, we get 2 buckets each of the presenting 50% of the rows.  In that
-case the borders of our buckets are 9 and 10.
+Every bucket in ~histogram_bounds~ shall represent the same number of rows.
+Therefore we could think of the borders of the bucket as a percentile.  If we
+consider the case of 50% percentile, we get 2 buckets each of it the
+representing 50% of the rows.  In that case the borders of our buckets are 9
+and 10.
 
-The planner uses such percentiles to represent the distribution and uses it to
-estimate the affected number of rows for a given predicate.  This is described
-in detail in the [[https://www.postgresql.org/docs/current/row-estimation-examples.html][PostgreSQL documentation]].
+The planner uses such percentiles to estimate the affected number of rows for a
+given predicate.  This is described in detail in the [[https://www.postgresql.org/docs/current/row-estimation-examples.html][PostgreSQL documentation]].
 
 There we learn that for values in the histogram buckets we assume uniform
 distribution.  So we will estimate the same selectivity or the same number of
