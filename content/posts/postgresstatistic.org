@@ -1,23 +1,42 @@
-#+TITLE: Why Tune Analyze in Postgres
+#+TITLE: Why Tune Analyze in PostgreSQL
 #+DATE: 2020-01-09T21:06:34+01:00
-#+TAGS: ["PostgreSQL"]
+#+TAGS[]: ["PostgreSQL"]
 #+DRAFT: true
 
 Why is it important to adjust the statistics target for big tables?
 
-In the [[/posts/analyze-extreme-distributions-in-postgresql/][previous post]] I analyzed the issue for a very specific case:  few values
-(low cardinality) on big table with very uneven distribution.
+With the trend in the business to automate processes using decisions based on
+data about the business there comes the challenge for data engineers to deal
+with more and more data.  Furthermore the information systems should behave
+reliably and respond in a predictable manner.  If you are working with
+PostgreSQL it is the question how to configure the system to be able to
+process queries so that the service level objectives are met.
 
-Now let's imagine we have tables with a non unique high cardinality column.
-Looking at the distribution for the values we observe a highly uneven
-distribution.  For some of the more frequent values we will see those
-represented in the MCV list.  The majority of values will be represented using
-[[https://www.postgresql.org/docs/current/view-pg-stats.html][~histograms_bounds~]].
+In a [[/posts/analyze-extreme-distributions-in-postgresql/][previous post]] I analyzed the issue for a very specific case: few values
+(low cardinality) in a big table with a very uneven distribution.  In this post
+I want to discuss the influence of uneven distribution for /high cardinality/
+columns on the quality of query planning.
 
-In the following text I want to focus on the effect of uneven distribution of
-the population represented in ~histogram_bounds~.  We will disregard the effect
-of MCV values here for the sake of simplicity.  In order to illustrate it you
-see an example with less data.
+Let's imagine we have a table with a non unique high cardinality column.
+Additionally let's assume a highly uneven distribution.  As we learn from [[https://www.postgresql.org/docs/12/planner-stats.html][the
+documentation]] the maximum number of entries for ~histogram_bounds~ and
+~most_common_vals~ (also refered to as MCV) are configured by the parameter
+~statistics~ that could be set per column.  The default is ~100~.
+
+If there are /not more/ than 100 high frequent values the default configuration
+will work just fine.  Up to 100 frequent values we will see represented in
+the MCV list.  The majority of values will be represented using
+[[https://www.postgresql.org/docs/12/view-pg-stats.html][~histogram_bounds~]].
+
+[[/pg_stat_highcard/pg_stat1.png]]
+
+*Figure 1:* As long as the most frequent values are all covered when we reach
+the more flatten part of the distribution curve query planning should be fine.
+
+But what happens if there are more values with a frequency in the steep part of
+the distribution graph?
+
+In order to illustrate it you see an example with less data.
 
 In the picture we see an uneven distribution.  A column in our table
 might have the 10 different values (from 1 to 10).  From all rows 58% have the
