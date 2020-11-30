@@ -1,7 +1,7 @@
 ---
 title: "Event Categories and Turtles"
-date: 2020-11-28T14:03:41+01:00
-draft: true
+date: 2020-11-30T16:48:41+01:00
+draft: false
 toc: false
 ---
 
@@ -18,17 +18,7 @@ focus on one in this article.
 
 In an [event-driven architecture][oreilly-event] microservices communicate by
 exchanging events.  When archived those events produce a change log which is
-important for analytical use cases. <!--
-TODO: This is necessary since there is no centralized view (see above) -->
-
-<!-- Furthermore it allows the transactional system to clean up data which are not needed.  So the database attached to the microservice can be maintained small and efficient. -->
-
-<!-- In microservices the processing of a business object (like an order) is distributed.  Any service persists the state necessary for its purpose. -->
-
-<!-- Scaling -> distribution -> relaxed constraints -->
-
-<!-- requires reconstruction of global view and check of the constraints. -->
-
+important for analytical use cases.
 
 ## Differences between Event Categories
 
@@ -65,8 +55,6 @@ derive from?  Imagine you want to send the customer a notification that his
 payment was received.  It would be quite difficult to enable this use case if only
 an `order_has_changed` data change event is emitted.
 
-<!-- The same problem occurs to an analyst. -->
-
 While with business events it is possible to have separate services for every
 single event it is not possible for the data change event.  If a single
 microservice *S* emits business event types (*E1* and *E2*) it can be cut into
@@ -75,18 +63,8 @@ could emit *E1* and *S''* could emit *E2*.  This implies that the architectural
 change can be done without impact on the consumers of those events.  The same is
 not as simple for data change events.
 
-<!-- (mind you every service persists only the data it needs) -->
-
 
 ### Efficiency
-
-<!-- Furthermore those events change the way how they are processed. -->
-
-
-
-<!-- it might be interesting to have grouping criteria in an business event. -->
-<!-- But it should be clear, which fields are essentially for its identity and -->
-<!-- which not. -->
 
 A data change event has one advantage.  The consumer can reconstruct the latest
 state by processing only the last message and discarding all others.  This is
@@ -105,33 +83,22 @@ of view.  It is also efficient from the operational point of view.
 ## Summary
 
 In an event-driven architecture you have only event producers and consumers
-exchanging messages which we call "event".  In this model there aren't
+exchanging messages which we call "events".  In this model there aren't
 databases.  Data change events make sense, if we want to replicate databases or
 tables.  But calling them "events" will lead the reader to the assumption both
 are different kind of turtles.  But they aren't.
 
 Using the event broker and its event transport system moves the statement level
 logging of a RDBMS up to level of communication of components within a
-distributed system (therefore the [`data_op` field][data_op] is required).  But
-it adds severe limitations on the options to evolve the system in which the
-microservice is a component.  As Jessica Kerr pointed it out so nicely: "[It's
-never turtles all the way down][turtles]".
+distributed system (therefore the [`data_op` field][data_op] is required).
+Having both categories in the very same event broker *and* calling both "events"
+could lead to the notion they can be used interchangeably.  Doing so would add
+severe limitations on the options to evolve the system in which the microservice
+is a component.  As Jessica Kerr pointed it out so nicely: "[It's never turtles
+all the way down][turtles]".
 
 [event-types]: https://nakadi.io/manual.html#using_event-types
 [data_op]: https://nakadi.io/manual.html#definition_DataChangeEvent
 [oreilly-event]: https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch02.html
 [turtles]: https://jessitron.com/2020/11/24/every-level-is-different/
 [bo]: https://en.wikipedia.org/wiki/Business_object
-
-<!-- # Identity -->
-
-<!-- natural key versus artificial key -->
-
-<!-- event id as artificial key (could allow generic processing, would not be needed -->
-<!-- in case of good metadata and natural key) -->
-
-<!-- (identity: when (`occurred_at`) what (action: `order_placed`) who (object: -->
-<!-- `order_number`)) is the basis of all processing.  If the identity is not clear, -->
-<!-- the meaning of the event type is not clear and could change any time. -->
-
-<!-- A generic, artificial Event id adds complexity (is not part of the problem space) -->
