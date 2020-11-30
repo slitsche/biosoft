@@ -41,7 +41,7 @@ single business event represents a change.  Every byte we persist is relevant.
 
 In contrast data change events always contain all data for all attributes of the
 [business object][bo], no matter if the field has been touched by the triggering
-event or not.  This means on the other hand data change events carries
+event or not.  This means on the other hand data change events carry
 information which is irrelevant for the triggering event.  That said, it means
 per byte it contains less information.
 
@@ -59,18 +59,18 @@ some consequences.
 
 I understand the event driven architecture in a way that systems exchange
 messages (events) and the specific type of the event allows interested parties
-(consumers) to react in a specific and appropriate manner.  But which specific
-action will an event "something has changed" allow the consumer to derive from?
-Imagine you want to sent the customer a notification that his payment was
-received it would be quite difficult to enable this use case if only an
-`order_has_changed` data change event is emitted.
+(consumers) to react in a specific and appropriate manner. Given an event type
+"object has changed" which specific action will it allow the consumer to
+derive from?  Imagine you want to send the customer a notification that his
+payment was received.  It would be quite difficult to enable this use case if only
+an `order_has_changed` data change event is emitted.
 
 <!-- The same problem occurs to an analyst. -->
 
 While with business events it is possible to have separate services for every
-single event it is not possible for the data change event.  If a single micro
-service *S* emits business event types (*E1* and *E2*) it can be cut into
-several services *without* need to redesign the events types.  Subsequently *S'*
+single event it is not possible for the data change event.  If a single
+microservice *S* emits business event types (*E1* and *E2*) it can be cut into
+several services *without* need to redesign the event types.  Subsequently *S'*
 could emit *E1* and *S''* could emit *E2*.  This implies that the architectural
 change can be done without impact on the consumers of those events.  The same is
 not as simple for data change events.
@@ -90,8 +90,8 @@ not as simple for data change events.
 
 A data change event has one advantage.  The consumer can reconstruct the latest
 state by processing only the last message and discarding all others.  This is
-already part of the problem: discard means wasted resources and is a consequence
-of the reduced content of information.
+already part of the problem: discarding means wasted resources and is a
+consequence of the reduced content of information.
 
 In the context of business analytics we often deal with questions in regard to
 events (in the notion of "interaction with the system").  Retrieving that
@@ -111,7 +111,7 @@ tables.  But calling them "events" will lead the reader to the assumption both
 are different kind of turtles.  But they aren't.
 
 Using the event broker and its event transport system moves the statement level
-logging of a RDBMS up to level of communication of components wihtin a
+logging of a RDBMS up to level of communication of components within a
 distributed system (therefore the [`data_op` field][data_op] is required).  But
 it adds severe limitations on the options to evolve the system in which the
 microservice is a component.  As Jessica Kerr pointed it out so nicely: "[It's
