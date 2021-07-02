@@ -1,6 +1,6 @@
 #+TITLE: My org-mode setup
 #+DATE: 2019-12-06T10:30:00+01:00
-#+TAGS: ["Emacs"]
+#+TAGS[]: Emacs
 #+DRAFT: true
 
 * Goals
@@ -83,6 +83,9 @@ If an item is marked as closed and has an clock entry it will show up in
 log-mode view twice.  This depends on the configuration of
 =org-agenda-log-mode-items=.
 
+Journal entry is for anything which is not orga or meeting and is not already in
+the todo list.  It is an to structure todo or notes in the GTD, work
+conceptionally on the projects.
 
 ** What to report?
 

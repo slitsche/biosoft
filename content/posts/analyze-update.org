@@ -1,6 +1,6 @@
 #+TITLE: An Update on Statistics Target
 #+DATE: 2019-12-01T10:30:00+01:00
-#+TAGS: ["PostgreSQL"]
+#+TAGS[]: PostgreSQL
 #+DRAFT: false
 
 In an [[/posts/analyze-extreme-distributions-in-postgresql/][earlier article I analyzed]] the influence of the statistics target on the

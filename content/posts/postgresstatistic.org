@@ -1,6 +1,6 @@
 #+TITLE: Why Tune Analyze in PostgreSQL
 #+DATE: 2020-01-09T21:06:34+01:00
-#+TAGS[]: ["PostgreSQL"]
+#+TAGS[]: PostgreSQL
 #+DRAFT: true
 
 Why is it important to adjust the statistics target for big tables?
