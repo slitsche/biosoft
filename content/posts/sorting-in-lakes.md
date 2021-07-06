@@ -1,7 +1,7 @@
 ---
 title: "Sorting in Lakes"
 date: 2021-07-02T10:26:00+01:00
-draft: true
+draft: false
 toc: false
 tags:
     - PostgreSQL
