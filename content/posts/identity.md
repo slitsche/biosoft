@@ -9,14 +9,6 @@ On our way from monolithic applications to a microservice architecture a
 property provided by databases got lost --- the unique constraint.  We need a
 different approach to mitigate the consequences of this missing property.
 
-<!--
-when we design a schema we have some id in there, generate a UUID for any
-instance and we think we are done.
-
-We are not.
-
--->
-
 # Why an `id` is not sufficient
 
 When designing a database schema it is considered it a good habit to have either
@@ -58,17 +50,12 @@ of one column and define our tuple as unique key.
 
 In our new world of distributed microservices our database schema got
 distributed across many microservices.  Along the way we got messages with a
-schema.  The schema on write made way for the schema on read[^1].  Different
-encodings like Json schema, parquet or protobuf focus on the definition of the
-record.  If we are lucky and use [Nakadi][metadataeid] we are recommend to use
-unique identifiers.
+schema persisted in an data lake.  The schema on write made way for the schema
+on read[^1].  Different encodings like Json schema, parquet or avro focus on
+the definition of the record.  If we are lucky and use [Nakadi][metadataeid] we
+are recommend to use unique identifiers.
 
 The unique constraints got lost.
-
-Nakadi documentation says the `metadata.eid`
-
-    SHOULD be guaranteed to be unique from the
-    perspective of the producer.
 
 Since there was a need to create unique values without locks in a distributed
 environment UUID has been widely adopted.  Now we use those as identifiers.
@@ -77,6 +64,10 @@ are generated, but this is hidden for the consumer.  The `eid` is a surrogate
 key prone to the error an additional unique key should prevent.
 
 <!--
+Nakadi documentation says the `metadata.eid`
+
+    SHOULD be guaranteed to be unique from the
+    perspective of the producer.
 check api guidellines
 https://opensource.zalando.com/restful-api-guidelines/#event-metadata
 https://opensource.zalando.com/restful-api-guidelines/#211
@@ -103,12 +94,11 @@ TODO: nakadi documentation,  API guidelines
 
 Since our database schema got distributed additional effort is needed to make
 sense out of the distributed data.  In order to be of a purpose for the business
-we must be able to relate the blocks of information to the real world.  The
-messages emitted by the micro services are persisted in a data lake.  Due to the
-nature of messaging we have to [expect duplicates][leastonce].
+we must be able to relate the blocks of information to the real world.
 
-Since there is no instance enforcing a unique constraint (like the database was)
-the rules need be defined on read.  The unique constraint on write made way for
+Due to the nature of messaging we have to [expect duplicates][leastonce].  Since
+there is no instance enforcing a unique constraint (like the database was) the
+rules need be defined on read.  The unique constraint on write made way for
 unique constraint on read.
 
 If there is no machine readable definition of unique constraints different
@@ -134,7 +124,7 @@ when every business unit has a different view of the business?
 
 How can we mitigate this issue?  I think there are a couple of options:
 
-- Declare the unique fields in the schema.
+- Declare the fields in the schema which uniquely identify the entity
 - Communicate more and live a review process
   https://opensource.zalando.com/restful-api-guidelines/#195
 - Careful use of uuids, avoid when possible.
