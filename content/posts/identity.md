@@ -116,7 +116,7 @@ readers will eventually implement deduplication differently.  From the company
 perspective this will lead to the situation that different analysts will analyse
 the data differently.
 
-It is already [a know problem in science][psychology] that the same dataset can
+It is already [a known problem in science][psychology] that the same dataset can
 be analyzed in respect to a given question with contradicting results.  An
 important remark from the research is
 
@@ -141,8 +141,9 @@ How can we mitigate this issue?  I think there are a couple of options:
 - If UUID needs to be used, generate it deterministically: derive the UUID from
   the fields which make the event unique (natural key) if possible.
 
-[^1]: A extensive discussion of schemaless data models, schema-on-read vs schema
--on-write can be found in [Kleppmann2017]
+[^1]: An extensive discussion of schemaless data models, schema-on-read vs schema
+-on-write can be found in Kleppmann, M.: Designing Data-Intensive
+Applications. O'Reilly 2017.
 
 -----------
 
