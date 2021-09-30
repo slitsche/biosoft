@@ -20,19 +20,11 @@ Because we want to be able to derive predications about the real world.
 Generating a UUID or using a [sequence object][sequence] does not help here: it
 provides us with uniqueness but it lacks the property of [identity][identity].
 
-The presence of a single column primary key simplifies the definition of
-references.  But more important for the purpose of the information system is the
-presence of the unique key.  With its definition no value could enter the system
-which does not represent the entity in the real world.  Therefore a PostgreSQL
-database could act as an oracle telling always the truth.  We would lose this
-valueable property if we merely had a primary key which is automatically
-generated.
-
-<!--
 If our database table contains information about things at which we can point
 at, we often are able to use a natural key (items in a warehouse, trees in
 park).  Those things are often labeled with a name and we can use that name as a
-natural primary key in our table.
+natural primary key in our table.  In this case uniqueness ensures identity of
+our relation with the real world.
 
 But more often we deal with things we cannot point at: e.g. a mother or a
 purchase.  Those are relations you cannot touch.  If we need to handle those
@@ -41,19 +33,23 @@ purchase has an identity because any item on stock can be sold only once.  We
 also need the buyer and the seller.  Our purchase has a natural unique key
 containing customer, merchant and item.
 
-In our relational database world we could define a primary key using that tuple
-of three entities.  For practical reasons we are using a surrogate primary key
-of one column and define our tuple as unique key.
--->
+The presence of a single column primary key simplifies the definition of
+references.  But more important for the purpose of the information system is the
+presence of the unique key.  With its definition no value could enter the system
+which does not represent the entity in the real world.  Therefore a PostgreSQL
+database could act as an oracle telling always the truth.  We would lose this
+valueable property if we merely had a primary key which is automatically
+generated.
+
 
 # Identity and messaging
 
 In our new world of distributed microservices our database schema got
 distributed across many microservices.  Along the way we got messages with a
 schema persisted in an data lake.  The schema on write made way for the schema
-on read[^1].  Different encodings like Json schema, parquet or avro focus on
+on read[^1].  Different encodings like json, parquet or avro focus on
 the definition of the record.  If we are lucky and use [Nakadi][metadataeid] we
-are recommend to use unique identifiers.
+are requested to use an unique identifiers.
 
 The unique constraints got lost.
 
@@ -127,7 +123,7 @@ How can we mitigate this issue?  I think there are a couple of options:
 - Declare the fields in the schema which uniquely identify the entity
 - Communicate more and live a review process
   https://opensource.zalando.com/restful-api-guidelines/#195
-- Careful use of uuids, avoid when possible.
+- Avoid a UUID when possible.
 - If UUID needs to be used, generate it deterministically: derive the UUID from
   the fields which make the event unique (natural key) if possible.
 
