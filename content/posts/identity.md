@@ -35,7 +35,7 @@ containing customer, merchant and item.
 
 The presence of a single column primary key simplifies the definition of
 references.  But more important for the purpose of the information system is the
-presence of the unique key.  With its definition no value could enter the system
+presence of the unique key[^1].  With its definition no value could enter the system
 which does not represent the entity in the real world.  Therefore a PostgreSQL
 database could act as an oracle telling always the truth.  We would lose this
 valueable property if we merely had a primary key which is automatically
@@ -47,9 +47,9 @@ generated.
 In our new world of distributed microservices our database schema got
 distributed across many microservices.  Along the way we got messages with a
 schema persisted in an data lake.  The schema on write made way for the schema
-on read[^1].  Different encodings like json, parquet or avro focus on
-the definition of the record.  If we are lucky and use [Nakadi][metadataeid] we
-are requested to use an unique identifiers.
+on read[^2].  Different encodings like json, parquet or avro focus on
+the definition of the record.  If we are lucky and use Nakadi we
+are requested to use [unique identifiers][metadataeid].  But...
 
 The unique constraints got lost.
 
@@ -110,26 +110,25 @@ important remark from the research is
 > in outcomes, nor did a team’s level of statistical expertise or the peer
 > ratings of analytical quality.
 
-<!-- Since only the decisions during the statistical analysis was the object of the -->
-<!-- research it is fair to assume the data set is clear documented and clean. -->
-
-Lacking a common view on the unique constraints the variation will lead to
-different results in the preparation of the data.  This variation adds to the
-above mentioned variation of the analysis.  What does this mean for a company
-when every business unit has a different view of the business?
+Making sense out of data is already a difficult business.  I think a missing
+a common view of what a row identifies makes it more complicated.
 
 How can we mitigate this issue?  I think there are a couple of options:
 
 - Declare the fields in the schema which uniquely identify the entity
 - Communicate more and live a review process
-  https://opensource.zalando.com/restful-api-guidelines/#195
-- Avoid a UUID when possible.
+  <!-- https://opensource.zalando.com/restful-api-guidelines/#195 -->
 - If UUID needs to be used, generate it deterministically: derive the UUID from
-  the fields which make the event unique (natural key) if possible.
+  the fields which make the event unique (natural key or candidate key) if
+  possible.
 
-[^1]: An extensive discussion of schemaless data models, schema-on-read vs schema
+[^1]: It is also referred to as [candidate
+    key](https://en.wikipedia.org/wiki/Candidate_key).
+
+[^2]: An extensive discussion of schemaless data models, schema-on-read vs schema
 -on-write can be found in Kleppmann, M.: Designing Data-Intensive
 Applications. O'Reilly 2017.
+
 
 -----------
 
