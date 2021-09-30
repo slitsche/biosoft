@@ -9,7 +9,7 @@ On our way from monolithic applications to a microservice architecture a
 property provided by databases got lost --- the unique constraint.  We need a
 different approach to mitigate the consequences of this missing property.
 
-# Why an `id` is not sufficient
+## Why an `id` is not sufficient
 
 When designing a database schema it is considered it a good habit to have either
 a [natural key][natural] or if we have a [synthetic][surrogate] key only we
@@ -42,11 +42,11 @@ valueable property if we merely had a primary key which is automatically
 generated.
 
 
-# Identity and messaging
+## Identity and messaging
 
 In our new world of distributed microservices our database schema got
 distributed across many microservices.  Along the way we got messages with a
-schema persisted in an data lake.  The schema on write made way for the schema
+schema persisted in a data lake.  The schema on write made way for the schema
 on read[^2].  Different encodings like json, parquet or avro focus on
 the definition of the record.  If we are lucky and use Nakadi we
 are requested to use [unique identifiers][metadataeid].  But...
@@ -86,7 +86,7 @@ works from a technical point of view.
 TODO: nakadi documentation,  API guidelines
 -->
 
-# World view
+## World view
 
 Since our database schema got distributed additional effort is needed to make
 sense out of the distributed data.  In order to be of a purpose for the business
@@ -106,27 +106,27 @@ It is already [a known problem in science][psychology] that the same dataset can
 be analyzed in respect to a given question with contradicting results.  An
 important remark from the research is
 
-> that analysts’ prior beliefs about the effect did not explain the variation
+> "that analysts’ prior beliefs about the effect did not explain the variation
 > in outcomes, nor did a team’s level of statistical expertise or the peer
-> ratings of analytical quality.
+> ratings of analytical quality."
 
 Making sense out of data is already a difficult business.  I think a missing
-a common view of what a row identifies makes it more complicated.
+a common view of what a row identifies makes it even more complicated.
 
-How can we mitigate this issue?  I think there are a couple of options:
+How could we mitigate this issue?  I think there are a couple of options:
 
-- Declare the fields in the schema which uniquely identify the entity
-- Communicate more and live a review process
-  <!-- https://opensource.zalando.com/restful-api-guidelines/#195 -->
+- Declare the fields in the schema which uniquely identify the entity so that it
+  would also be machine readable.
 - If UUID needs to be used, generate it deterministically: derive the UUID from
   the fields which make the event unique (natural key or candidate key) if
   possible.
+- If random UUID need to be used special care has to be taken.
 
 [^1]: It is also referred to as [candidate
     key](https://en.wikipedia.org/wiki/Candidate_key).
 
 [^2]: An extensive discussion of schemaless data models, schema-on-read vs schema
--on-write can be found in Kleppmann, M.: Designing Data-Intensive
+on-write can be found in Kleppmann, M.: Designing Data-Intensive
 Applications. O'Reilly 2017.
 
 
