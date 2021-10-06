@@ -39,7 +39,7 @@ references.  But more important for the purpose of the information system is the
 presence of the unique key[^1].  With its definition no value could enter the
 system which does not represent the entity in the real world.  Therefore a
 PostgreSQL database could act as an oracle telling always the truth.  We would
-lose this valueable property if we merely had a primary key which is
+lose this valuable property if we merely had a primary key which is
 automatically generated.
 
 
@@ -50,15 +50,16 @@ distributed across many microservices.  Along the way we got messages with a
 schema persisted in a data lake.  The schema on write made way for the schema on
 read[^2].  Different encodings like json, parquet or avro focus on the
 definition of the record.  Some systems declare [unique
-identifiers][metadataeid] and leave the responibility to the producer.  But...
+identifiers][metadataeid] and leave the responsibility to the producer.  But...
 
 The unique constraints got lost.
 
-Since there was a need to create unique values without locks in a distributed
-environment UUID has been widely adopted.  Now we use those as identifiers.
-They are unique but it is unclear, what they identify.  It depends how they
-are generated, but this is hidden for the consumer.  The `eid` is a surrogate
-key prone to the error an additional unique key should prevent.
+That unique identifier (the `eid`) is like a surrogate key prone to the error an
+additional unique key should prevent.  Since there was a need to create unique
+values without locks in a distributed environment UUID has been widely adopted.
+Now we use those as identifiers.  They are unique but it is unclear, what they
+identify.  It depends how they are generated and associated with the message,
+but this is hidden for the consumer.
 
 <!--
 
@@ -80,18 +81,18 @@ Since our database schema got distributed additional effort is needed to make
 sense out of the distributed data.  In order to be of a purpose for the business
 we must be able to relate the blocks of information to the real world.
 
-With the decision for a distributed system we also accepted that messageing is
+With the decision for a distributed system we also accepted that messaging is
 not reliable.  If we go for at-least-once delivery we have to [expect
 duplicates][leastonce] will end up in our data lake.  Since there is no instance
 enforcing a unique constraint (like the database was) the rules need be defined
 on read.  The unique constraint on write made way for unique constraint on read.
 
-If there is no machine readable definition of unique constraints different
+If there is no (machine readable) definition of unique constraints, different
 readers will eventually implement deduplication differently.  This will lead
-(eventually) to the situation that different analysts will analyse
+(eventually) to the situation that different analysts will analyze
 the data differently.
 
-It is already [a known problem in science][psychology] that the same dataset can
+It is already [a known problem in science][psychology] that the same data set can
 be analyzed in respect to a given question with contradicting results.  An
 important remark from the research is
 
