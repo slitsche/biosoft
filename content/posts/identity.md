@@ -15,7 +15,7 @@ approach to mitigate the consequences of this missing property.
 
 When designing a database schema it is considered a good habit to use a [natural
 key][natural] as primary key.  If our database table contains information about
-things which we can point at (e.g. items in a warehouse, trees in park), we
+things which we can point at (e.g. items in a warehouse, houses in a street), we
 often are able to use a natural key .  Those things are labeled with a
 name and we can use that name as a natural primary key in our table.  In this
 case uniqueness ensures identity of our table with the real world.
