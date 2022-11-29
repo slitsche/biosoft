@@ -4,7 +4,7 @@ date: 2021-12-22T10:20:00+01:00
 draft: false
 toc: false
 tags:
-  - Modelling
+  - Modeling
 ---
 
 On our way from monolithic applications to a microservice architecture a
