@@ -1,10 +1,10 @@
 ---
-title: "Reference"
+title: "Language, Evolution and Reference Types"
 date: 2022-11-04T10:20:00+01:00
 draft: true
 toc: false
 tags:
-  - Modelling
+  - Modeling
 ---
 
 ## Language evolution
@@ -13,14 +13,14 @@ In the middle of the 19th century the anthropologist [Lewis Morgan][morgan]
 investigated the society and relationships among American aborigines.  He
 observed that native Americans used a terminology for their relationships which
 do not match the family which was lived.  A couple of man and woman was living
-together for a long period which made it clear what their children are.
-Nevertheless a man called all offsprings of him and of his brothers his
-children.  All offspring of his sisters were his nephews and nieces.  The same
-was true for woman.  A mother called all her offspring and the offspring of her
-sisters as children.
+together for a long period which made it clear what their children are.  However
+a man called "children" all offspring of him and of his brothers.  All
+offspring of his sisters were his nephews and nieces.  The same was true for
+woman.  A mother called all her offspring and the offspring of her sisters as
+children.
 
 Interestingly it has been found a society which actually lived this type of
-relationship in the Polynesian archipel.  However, their names for relationships
+relationship in the Polynesian islands.  However, their names for relationships
 again did not match what they lived.  All members of one generation, all
 brothers and sisters have been called mothers and fathers for all of their
 offspring.  The people were lacking proper words for the kinship
@@ -64,7 +64,7 @@ be gotten --- one simply could follow all in the schema documented references.
 ## Reference type
 
 From our missing schema definition in data lakes I miss the most the declaration
-of the reference type of a column.  It is more valueable as column level
+of the reference type of a column.  It is more valuable as column level
 lineage.
 
 Having a reference type would offer many interesting possibilities:
@@ -79,7 +79,6 @@ Having a reference type would offer many interesting possibilities:
 [^1]: The nice thing about the schema is that it provides an explicit representation
 of our model of the domain.  This model can now be used as a reference in the
 communication --- in case of doubt we can look it up and resolve uncertainty.
-
 
 [morgan]: https://en.wikipedia.org/wiki/Lewis_H._Morgan
 [lineage]: https://www.castordoc.com/blog/what-is-data-lineage
