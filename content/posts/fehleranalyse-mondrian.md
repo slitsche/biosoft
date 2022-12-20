@@ -3,7 +3,7 @@ title: "Adressen im ERP"
 date: 2010-01-27T15:14:00+01:00
 draft: false
 tags:
-    - Modelling
+    - Modeling
 ---
 
 Das Thema Adressen versus Personen ist immer wieder spannend. Und Quelle von Verwirrungen.
