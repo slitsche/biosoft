@@ -1,7 +1,7 @@
 ---
 title: "Kinship and Reference Types"
 date: 2022-11-04T10:20:00+01:00
-draft: true
+draft: false
 toc: false
 tags:
   - Modeling
