@@ -1,6 +1,6 @@
 ## Basic Configuration
 
-baseurl = "http://biosoft.de"
+baseurl = "https://biosoft.de"
 builddrafts = false
 canonifyurls = false
 languageCode = "en-US"
