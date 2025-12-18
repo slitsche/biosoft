@@ -67,6 +67,6 @@ design.
 In 1968 Pablo Picasso stated that, “Computers are useless. They can only
 give you answers”.  Lizards can help to find new questions.
 
-[Youtube: Introduction into Residuality Theory]
+[Introduction into Residuality Theory]( https://www.youtube.com/watch?v=0qKahTgetQ4 )
 
 [Interview with Barry O'Reilly]( https://www.youtube.com/watch?v=8GEy0C6EGvw )
