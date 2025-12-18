@@ -12,9 +12,10 @@ showcomments = true
 +++
 
 A couple of days ago I've attended a 3 days workshop about Residuality theory
-with Barry O'Reilly.  It was a great pleasure to learn some new ideas about
-software development.  The following are my main take aways which I would like
-to share.
+with Barry O'Reilly.  For a long time I haven't been exposed to completely new
+ideas about software development as in this workshop.  I enjoyed it very much.
+The amount of topics and ideas covered is too much for a this blog post.
+However I try to summarize one interesting train of thought.
 
 Proponents of TDD claim, applying the method would lead to successful software
 projects.  Let's assume 10% of the successful projects applied TDD.  Why then
@@ -27,11 +28,16 @@ brittle, it can only do what it was built for.  But the business context
 apparently changes in a non-predictable way.  How do such brittle systems
 survive in an unpredictable environment?  Successful software survives off-spec.
 
-Residuality theory uses insights from complexity science.  It proposes to start
-with a functional design and put it under stress.  We should find many different
-stressors and do not judge them with our bias.  The last point is the very
-important.  Any stressor is equally valuable, even the giant fire spitting
-lizard.
+Residuality theory uses insights from complexity science applied to biological
+evolution.  Stuart Kauffman could predict the number of cell types in a species
+based on the number of genes and their dependecies.  Barry assumes that the
+structure of the components in software system would influence the ability to
+react to unforseen changes in the business context.
+
+For this we start with a functional design and put it under stress.  We should
+find many different stressors and do not judge them with our bias.  The last
+point is the very important.  Any stressor is equally valuable, even the giant
+fire spitting lizard.
 
 Yes, this introduces a lot of fun into the design work.
 
@@ -42,10 +48,14 @@ help with the current one.  The more stressors we test, the more often we will
 see this pattern repeating.
 
 With every new stressor we walk around the problem and challenge our mental
-model.  Methods like TDD could help as well to walk around the problem.
-Residuality theory makes this process explicit.  Furthermore it can help to
-decide when we should stop with the design.  It allows to compare designs in
-respect to how many stressors one would handle better than the other.
+model.  Methods like TDD could help us as well with it.  But often we tend to be
+biased which results that certain stressors are not considered.  Residuality
+theory makes this process explicit by stressing that no stressor should be
+rejected.  This approach helps to understand the business better.
+
+Furthermore it can help to decide when we should stop with the
+iterating over our design.  Using the stressors we are able to compare designs
+in respect to how many of them one would handle better than the other.
 
 In 1968 Pablo Picasso stated that, “Computers are useless. They can only
 give you answers”.  Lizards can help to find new questions.
