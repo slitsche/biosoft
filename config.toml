@@ -67,7 +67,7 @@ soundcloud = "baccla"
 
 ## Extras
 [params.extra]
-copyright = "© 2008-2022. Stefan Litsche. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+copyright = "© 2008-2025. Stefan Litsche. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
 poweredby = true
 highlightjs = true
 socialmarkup = true
