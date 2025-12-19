@@ -8,7 +8,7 @@ tags = ["programming"]
 categories = []
 
 showpagemeta = true
-showcomments = true
+showcomments = false
 +++
 
 ![dragon](carlos-cram-ttJt5X9Hmu8-unsplash-small.jpg "Title")
@@ -23,7 +23,7 @@ However I try to summarize one thought I find especially relevant.
 
 ---
 
-Proponents of  [TDD](https://en.wikipedia.org/wiki/Test-driven_development "Wiki:
+Proponents of  [TDD](https://en.wikipedia.org/wiki/Test-driven_development "Wikipedia:
 -Test Driven Development") claim, applying the method would lead to successful
 software projects.  However, even if we assume 10% of successful projects apply
 TDD, how do we explain the success of the remaining 90% that do not?
