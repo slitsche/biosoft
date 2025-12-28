@@ -14,15 +14,15 @@ anzeigen.
 
 Die Präsentationen waren sehr interessant. Es waren Lösungen in
 
-	- Bash/Awk
-	- Erlang
-	- Haskell
-	- Scala
-	- Lua
-	- Clojure
-	- Common Lisp
-	- R
-	- C
+- Bash/Awk
+- Erlang
+- Haskell
+- Scala
+- Lua
+- Clojure
+- Common Lisp
+- R
+- C
 
 zu sehen. Sehr interessant war, dass es doch trotz des sehr einfachen Problems sehr viele unterschiedliche Wege zu Lösung gibt.
 
