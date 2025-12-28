@@ -18,6 +18,6 @@ learning could be scaled and could beat the expert systems.
 I was not disappointed about this at all.  In contrast -- it made clear to me
 what the capabilities and limitations of AI are.  A computer given all the data
 can approximate the equation to calculate the energy from the mass but it will
-never come up with the beauty of the formula e = m c<sup>2</sup>.
+never come up with the beauty of the formula E = m c{{< super "2" >}}.
 
 [bitterlesson]: http://www.incompleteideas.net/IncIdeas/BitterLesson.html
