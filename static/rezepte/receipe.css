@@ -1,0 +1,81 @@
+/* calming vibes colors: https://www.color-hex.com/color-palette/88774 */
+:root {
+    --main: #a2aaaf;
+    --text: #4d5870;
+    --light: a2aaaf;
+    --odd: #e9eaec;
+    --even: #ccc4c1;
+}
+
+.content {
+    padding: 5px;
+    width: calc(50% - 14px );
+    margin: 2px;
+    background: var(--odd);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /*
+    border: 1px solid red !important;
+    background: red;
+     display: block;  found in baccla article css,  what does it do?*/
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        width: 100%;
+    }
+    .even {
+        padding-left: 2em;
+        background: var(--even);
+    }
+    .odd {
+        background: var(--odd);
+    }
+}
+
+#container {
+    width: 64em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--text);
+    align-self: stretch;
+    /* align text vertical to bottom
+    align-items: flex-end; */
+}
+
+.main {
+    //background: var(--main);
+    width: 100%;
+    padding: 5px;
+    margin: 2px;
+}
+
+.odd {
+    /* width: calc(30% - 10px ); */
+    vertical-align: top;
+    display: inline;
+}
+
+.even {
+    /* align text vertical to bottom*/
+    /*
+    background: var(--light);
+    width: calc(70% - 20px );
+    display: inline-block;
+    align-self: flex-end;
+    */
+}
+/* FIXME: hack during development, depends on order
+* {
+   border: 1px solid red !important;
+}
+* {
+   border: 1px solid red !important;
+}
+even {
+    background: blue;
+}
+ */
